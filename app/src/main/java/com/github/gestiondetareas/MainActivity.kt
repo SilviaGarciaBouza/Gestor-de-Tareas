@@ -22,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.gestiondetareas.ui.components.RowCardComponent
@@ -52,10 +53,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(taskViewModel: TaskViewModel, modifier: Modifier) {
     val tareasState by taskViewModel.listTareasState.collectAsState()
-    val OrangeColor = Color(0xFFFFAF38)
     Scaffold(
         topBar = {
-            TopAppBar( colors = TopAppBarDefaults.topAppBarColors(containerColor = OrangeColor),
+            TopAppBar( colors = TopAppBarDefaults.topAppBarColors(containerColor = colorResource(R.color.orange_color)),
                 title = {
                     TopAppComponent(
                         numPendingTasks = tareasState.notCompletedTasks,

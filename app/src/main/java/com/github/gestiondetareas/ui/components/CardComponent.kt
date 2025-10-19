@@ -27,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
@@ -38,15 +39,14 @@ import java.util.Locale
 
 @Composable
 fun CardComponent(task: Tarea, modifier: Modifier, iscompletedChange: (id: Int) -> Unit) {
-    val BlueLightColor = Color(0xFFC1EDFF)
-    val GreenColor = Color(0xFF4CAF50)
+
     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     Card(modifier = modifier
         .clickable { iscompletedChange(task.id) }
         .fillMaxWidth()) {
         Column(
             modifier = Modifier
-                .background(color = if (task.completed) BlueLightColor else Color.White)
+                .background(color = if (task.completed) colorResource(R.color.blue_light_color) else  colorResource(R.color.blue_more_light_color))
                 .fillMaxWidth()
         ) {
             Text(
@@ -87,7 +87,7 @@ fun CardComponent(task: Tarea, modifier: Modifier, iscompletedChange: (id: Int) 
                         "Pendiente"
                     }, style = MaterialTheme.typography.bodyMedium, color =
                         if (task.completed == true) {
-                            GreenColor
+                            colorResource(R.color.green_color)
                         } else {
                             Color.Red
                         }
