@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -50,13 +51,13 @@ fun CardComponent(task: Tarea, modifier: Modifier, iscompletedChange: (id: Int) 
                 .fillMaxWidth()
         ) {
             Text(
-                text = task.title,
+                text = stringResource( task.title),
                 Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = task.description,
+                text = stringResource(task.description),
                 Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp),
                 style = MaterialTheme.typography.bodyMedium
             )

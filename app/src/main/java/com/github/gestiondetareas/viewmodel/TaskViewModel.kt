@@ -32,7 +32,7 @@ class TaskViewModel : ViewModel() {
             _listTareasState.value.copy(updateListTAsk, updatedPendingTasks)
     }
 
-    fun addTask(id: Int, title: String, content: String, date: Date, completed: Boolean ){
+    fun addTask(id: Int, title: Int, content: Int, date: Date, completed: Boolean ){
         val currentTaskList= _listTareasState.value.taskList
         val updateTaskList=currentTaskList + Tarea(id, title,content,date, completed)
         val updatependingTasks = updateTaskList.count{!it.completed}

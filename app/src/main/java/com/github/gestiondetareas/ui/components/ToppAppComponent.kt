@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -31,7 +32,7 @@ fun TopAppComponent(numPendingTasks:Int, modifier: Modifier){
     Row(modifier.fillMaxWidth().padding(4.dp)){
         Icon( painter = painterResource(id = R.drawable.ic_pending_tasks_list), contentDescription= "Task icon",modifier.padding(end = 8.dp).size(80.dp),tint = Color.Unspecified )
         Column() {
-            Text(text = "Gestión de Tareas", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+            Text(text = stringResource(R.string.app_name), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
             Spacer(modifier.weight(1f))
             Text(text = "$numPendingTasks pendientes", style = MaterialTheme.typography.titleMedium)
         }
