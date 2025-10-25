@@ -22,9 +22,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.github.gestiondetareas.R
+import com.github.gestiondetareas.data.Tarea
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun TopAppComponent(numPendingTasks:Int, modifier: Modifier){
@@ -39,4 +44,10 @@ fun TopAppComponent(numPendingTasks:Int, modifier: Modifier){
     }
 
 
+}
+
+@Preview(backgroundColor =0xFFF0F0F0 )
+@Composable
+fun previewTopApComponent(){
+    TopAppComponent(15, modifier = Modifier)
 }

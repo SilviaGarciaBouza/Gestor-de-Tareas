@@ -27,15 +27,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.TestModifierUpdaterLayout
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.gestiondetareas.R
 import com.github.gestiondetareas.data.Tarea
 import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 
 @Composable
@@ -96,4 +99,14 @@ fun CardComponent(task: Tarea, modifier: Modifier, iscompletedChange: (id: Int) 
             }
         }
     }
+}
+
+@Preview(backgroundColor =0xFFF0F0F0 )
+@Composable
+fun previewCardComponent(){
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+    val t1= Tarea(id = 30, title = R.string.task_30_title, description = R.string.task_30_desc, completed = true, endDate = dateFormat.parse("14/11/2024") ?: Date(0))
+
+    CardComponent(task= t1, modifier = Modifier, iscompletedChange = {})
 }

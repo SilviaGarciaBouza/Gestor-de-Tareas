@@ -27,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.gestiondetareas.ui.components.RowCardComponent
 import com.github.gestiondetareas.ui.components.TopAppComponent
+import com.github.gestiondetareas.ui.screen.AppScreen
 import com.github.gestiondetareas.ui.theme.GestionDeTareasTheme
 import com.github.gestiondetareas.viewmodel.TaskViewModel
 
@@ -42,39 +43,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyApp(taskViewModel=taskViewModel, modifier = Modifier)
+                    AppScreen(taskViewModel=taskViewModel, modifier = Modifier)
                 }
             }
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun MyApp(taskViewModel: TaskViewModel, modifier: Modifier) {
-    val tareasState by taskViewModel.listTareasState.collectAsState()
-    Scaffold(
-        topBar = {
-            TopAppBar( colors = TopAppBarDefaults.topAppBarColors(containerColor = colorResource(R.color.orange_color)),
-                title = {
-                    TopAppComponent(
-                        numPendingTasks = tareasState.notCompletedTasks,
-                        modifier
-                    )
-                })
-        },
-        content = { paddingValues ->
-            RowCardComponent(
-                listTasks = tareasState.taskList,
-                modifier = modifier
-                    .fillMaxSize()
-                    .padding(paddingValues).fillMaxSize(),
-                iscompletedChange = taskViewModel::changeIsCompleted
-            )
-        }
-
-
-    )
-
-
-}
